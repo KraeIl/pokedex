@@ -6,22 +6,32 @@ app.secret_key = '123'
 
 @app.route('/')
 def index():
+    poke_image = None
+    poke_name = None
+    poke_id = None
     
     if 'input' in session and session['input'] != None:
         try:
             data = fetchPokemon(session['input'])
-            poke_image = data['sprites']['versions']['generation-viii']['black-white']['animated']['front_default']
+            poke_image = data['sprites']['versions']['generation-v']['black-white']['animated']['front_default']
             poke_name = data['name']
             poke_id = data['id']
             
-        except Exception:
+        except requests.exceptions.HTTPError as err:
             session['input'] = '1'
+            print(session['input'])
+            print(err)
             poke_image = '../static/MissingNo.png'
             poke_name = 'MissingNo.'
             poke_id = '?????'
         
     else:
         data = fetchPokemon('1')
+    
+    if poke_image == None:
+        poke_image = '../static/MissingNo.png'
+        poke_name = 'MissingNo.'
+        poke_id = '?????'
     
     return render_template('index.html', poke_id = poke_id, poke_name = poke_name, poke_image = poke_image)
 
