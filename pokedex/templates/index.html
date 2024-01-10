@@ -27,8 +27,13 @@
             </form>
 
             <div class="buttons"> 
-                <button class="button btn-prev" name="button btn-prev"> Prev &lt;</button>
-                <button class="button btn-prev" name="button btn-next">&gt; Next </button>
+                <form class="form_btn" name="form_prev" method="post" action="/prev">
+                    <button class="button btn-prev" name="button btn-prev" type="submit"> Prev &lt;</button>
+                </form>
+
+                <form class="form_btn" name="form_next" method="post" action="/next">
+                    <button class="button btn-next" name="button btn-next" type="submit">&gt; Next </button>
+                </form>
             </div>
 
             <img src="../static/pokedex.png" alt="pokedex" class="pokedex" name="pokedex">

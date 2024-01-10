@@ -54,6 +54,11 @@ main {
     left: 13.5%;
 }
 
+.form_btn{
+    width: 100%;
+    max-width: 425px;
+}
+
 .input_search{
     width: 100%;
     padding: 4%;
@@ -71,13 +76,15 @@ main {
     bottom: 10%;
     left: 50%;
     width: 65%;
+    height: 10%;
     transform: translate(-57%, 0);
     display: flex;
     gap: 20px;
 }
 
 .button {
-    width: 50%;
+    height: 80%;
+    width: 80%;
     padding: 4%;
     border: 2px solid #000;
     border-radius: 5px;
